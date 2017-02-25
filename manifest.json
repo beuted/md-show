@@ -1,0 +1,33 @@
+{
+  "manifest_version": 2,
+
+  "name": "md-show",
+  "description": "This extension allows you to show github markdown one line at a time [Ctrl+Down: Show next block, Ctrl+Up: hide last block]",
+  "version": "1.0",
+
+  "commands": {
+      "next" : {
+          "suggested_key": {
+              "default": "Ctrl+Down" 
+          },
+          "description": "Display next block"
+      },
+      "prev": {
+          "suggested_key": {
+              "default": "Ctrl+Up"
+          },
+          "description": "Hide last block"
+      }
+  },
+
+  "content_scripts": [
+      {
+        "matches": ["https://github.com/*"], 
+        "js": ["js/jquery.min.js","js/content-script.js"]
+      }
+  ],
+
+  "background": {
+    "scripts": ["js/background.js"]
+  }
+}
